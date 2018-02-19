@@ -1,4 +1,4 @@
-equire_relative './base.rb'
+require_relative './base.rb'
 
 class Todo < Base
   attr_accessor :id, :name
