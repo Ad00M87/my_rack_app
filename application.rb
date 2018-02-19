@@ -1,5 +1,16 @@
+#Require all of the files inside of the app directory and it's sub directories
+files = File.expand_path('../app/**/*.rb', __FILE__)
+Dir.glob(files).each { |file| require(file) }
+
 class Application
   def call(env)
-    ['200', {'Content-Type' => 'text/html'}, ["My Rack Application"]]
+    #create an instance of Rack::Request
+    request = Rack::Request.new(env)
+    resolve(request)
+  end
+
+  def resolve(request)
+    #Pass the request to our Router and call the route function
+    Router.new(request).route
   end
 end
