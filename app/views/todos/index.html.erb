@@ -1,5 +1,5 @@
 <html>
-  <%= render_partial "base/_head.html.erb" %> 
+  <%= render_partial "base/_head.html.erb" %>
   <body>
     <div>
       <h1><%= @title %></h1>
@@ -7,8 +7,8 @@
       <ul>
         <% @todos.each do |todo| %>
           <li>
-            <a href="/todos/<%= todo[:id] %>">
-              <%= "#{todo[:id]} - #{todo[:name]}" %>
+            <a href="/todos/<%= todo.id %>">
+              <%= "#{todo.id} - #{todo.name}" %>
             </a>
           </li>
         <% end %>
