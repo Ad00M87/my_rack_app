@@ -36,4 +36,16 @@ class BaseController
     #NOTE passing in binding will allow ERB to access the controllers instance variable
     ERB.new(raw).result(binding)
   end
+
+  def render_partial(template_file)
+    file_path = template_file_path_for(template_file)
+
+    if File.exists?(file_path)
+      puts " > Rendering partial file #{template_file}"
+      render_erb_file(file_path)
+    else
+      "ERROR: no available partial file #{template_file}"
+    end
+  end
+
 end
